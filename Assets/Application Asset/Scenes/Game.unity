@@ -232,7 +232,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BLC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8726304186346311731, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 3037262363899653322, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!1 &120930512
 GameObject:
@@ -345,7 +347,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BRC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8726304186346311731, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 3037262363899653322, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!1001 &291526099
 PrefabInstance:
@@ -424,7 +428,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FLC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8726304186346311731, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 3037262363899653322, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!4 &439183258 stripped
 Transform:
@@ -509,7 +515,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FRM
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5596913089370939113, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 4700558572545343773, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!4 &505978900 stripped
 Transform:
@@ -769,7 +777,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BLM
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5596913089370939113, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 4700558572545343773, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!4 &1133447697 stripped
 Transform:
@@ -854,7 +864,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FLM
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5596913089370939113, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 4700558572545343773, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!4 &1224420615 stripped
 Transform:
@@ -1158,7 +1170,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: BRM
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5596913089370939113, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 4700558572545343773, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!4 &2005787104 stripped
 Transform:
@@ -1243,7 +1257,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FRC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8726304186346311731, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
+    - {fileID: 3037262363899653322, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bed4a2e235504f991376c5c17a9f5, type: 3}
 --- !u!4 &5006512736240664846 stripped
 Transform:

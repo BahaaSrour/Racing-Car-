@@ -7,7 +7,7 @@ public class Drive : MonoBehaviour
 {
     public WheelCollider WC;
     public float torque = 200;
-
+    public GameObject mesh;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class Drive : MonoBehaviour
         Debug.Log("a ="+ a);
         if(a!=0)
         Go(a);
+        AnimiateTyres();
     }
 
     private void Go(float accel)
@@ -30,11 +31,15 @@ public class Drive : MonoBehaviour
         float thrustTorque = torque * accel;
         WC.motorTorque = thrustTorque;
 
+      
+
+    }
+    public void AnimiateTyres()
+    {
         Quaternion quat;
         Vector3 pos;
         WC.GetWorldPose(out pos, out quat);
-        transform.position = pos;
-        transform.rotation = quat;
-
+        mesh.transform.position = pos;
+        mesh.transform.rotation = quat;
     }
 }
