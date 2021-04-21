@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Drive : MonoBehaviour
 {
-    public WheelCollider WC;
     public float torque = 200;
+    public float steerAngle = 30;
+    public WheelCollider WC;
     public GameObject mesh;
 
     void Start()
@@ -19,20 +20,19 @@ public class Drive : MonoBehaviour
     void Update()
     {
         float a = Input.GetAxis("Vertical");
-        Debug.Log("a ="+ a);
-        if(a!=0)
-        Go(a);
+        float steer = Input.GetAxis("Horizontal");
+        Go(a,steer);
         AnimiateTyres();
     }
 
-    private void Go(float accel)
+    private void Go(float accel,float steer)
     {
         accel = Mathf.Clamp(accel, -1,1);
+        steer = Mathf.Clamp(steer, -1,1)*steerAngle;
         float thrustTorque = torque * accel;
-        WC.motorTorque = thrustTorque;
-
       
-
+        WC.motorTorque = thrustTorque;
+        WC.steerAngle = steer;
     }
     public void AnimiateTyres()
     {
