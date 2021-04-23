@@ -10,7 +10,8 @@ public class Drive : MonoBehaviour
     public WheelCollider[] WCs;
     public GameObject[] Wheels;
     public float breakTorque = 2000;
- 
+
+    public AudioSource skidSound;
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +19,7 @@ public class Drive : MonoBehaviour
         float steer = Input.GetAxis("Horizontal");
         float brake = Input.GetAxis("Jump");
         Go(a,steer,brake);
-        AnimiateTyres();
+        CheckForSkid();
     }
 
     private void Go(float accel,float steer,float brake)
@@ -42,17 +43,22 @@ public class Drive : MonoBehaviour
         }
     }
 
-    public void AnimiateTyres()
+    void CheckForSkid()
     {
-        //for (int i = 0; i < 4; i++)
-        //{
+        int skidingNum = 0;
 
-        ////Quaternion quat;
-        ////Vector3 pos;
-        ////WCs[i].GetWorldPose(out pos, out quat);
-        ////Wheels[i].transform.position = pos;
-        ////    if (i < 2)
-        ////        Wheels[i].transform.rotation = quat;
-        //}
+        for (int i = 0; i < 4; i++)
+        {
+            WheelHit wheelHit;
+            WCs[i].GetGroundHit(out wheelHit);
+            if (Mathf.Abs(wheelHit.forwardSlip) >= .5f || Mathf.Abs(wheelHit.sidewaysSlip) >= .5f)
+            {
+                skidingNum++;
+                if (!skidSound.isPlaying)
+                    skidSound.Play();
+            }
+        }
+        if (skidingNum == 0 && skidSound.isPlaying)
+            skidSound.Stop();
     }
 }
