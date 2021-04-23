@@ -439,7 +439,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fc34fbf8bcd4a4220803f887479c5edd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -482,6 +482,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &330516737010158076
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 330516737147375241, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_Name
+      value: SkidTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f543097778de2a040a3b208b95128cad, type: 3}
 --- !u!1001 &351027863974576296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,6 +563,12 @@ PrefabInstance:
       propertyPath: skidSound
       value: 
       objectReference: {fileID: 7786189771271771224}
+    - target: {fileID: 7552822051041907957, guid: 2e9c0271c79b204448faf87e1c3694cf,
+        type: 3}
+      propertyPath: skidTrailPrefab
+      value: 
+      objectReference: {fileID: 330516737147375243, guid: f543097778de2a040a3b208b95128cad,
+        type: 3}
     - target: {fileID: 7552822051379696008, guid: 2e9c0271c79b204448faf87e1c3694cf,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,7 +12,12 @@ public class Drive : MonoBehaviour
     public float breakTorque = 2000;
 
     public AudioSource skidSound;
-    // Update is called once per frame
+
+    public Transform skidTrailPrefab;
+    Transform[] skidTrails = new Transform[4];
+
+
+
     void Update()
     {
         float a = Input.GetAxis("Vertical");
@@ -55,10 +60,38 @@ public class Drive : MonoBehaviour
             {
                 skidingNum++;
                 if (!skidSound.isPlaying)
+                {
                     skidSound.Play();
+                    StartSkidTrail(i);
+                }
+            }
+            else 
+            {
+                EndSkidTrail(i);
             }
         }
         if (skidingNum == 0 && skidSound.isPlaying)
             skidSound.Stop();
+    }
+
+    public void StartSkidTrail(int i)
+    {
+        if (skidTrails[i] == null)
+            skidTrails[i] = Instantiate(skidTrailPrefab);
+        skidTrails[i].parent = WCs[i].transform;
+        //to start the skidd from the buttom of the tyre
+        skidTrails[i].localPosition = -Vector3.up * WCs[i].radius;
+    }
+
+    public void EndSkidTrail(int i)
+    {
+        if (skidTrails[i] == null) return;
+        //we created holder to hold the trail object then frees our skilltrail
+        Transform holder = skidTrails[i];
+        skidTrails[i] = null;
+        //it now has no parent
+        holder.parent = null;
+        // we destroyed that trail after 3o sec to let the player watch and it disapears
+        Destroy(holder.gameObject, 30f);
     }
 }
