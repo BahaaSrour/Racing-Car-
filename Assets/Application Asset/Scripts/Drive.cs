@@ -79,6 +79,9 @@ public class Drive : MonoBehaviour
         if (skidTrails[i] == null)
             skidTrails[i] = Instantiate(skidTrailPrefab);
         skidTrails[i].parent = WCs[i].transform;
+
+        //to make the skid trail always looks up 
+        skidTrails[i].localRotation = Quaternion.Euler(90, 0, 0);
         //to start the skidd from the buttom of the tyre
         skidTrails[i].localPosition = -Vector3.up * WCs[i].radius;
     }
@@ -91,6 +94,8 @@ public class Drive : MonoBehaviour
         skidTrails[i] = null;
         //it now has no parent
         holder.parent = null;
+        //because it will get a new roattion accourading to the holder as a new parent
+        holder.rotation= Quaternion.Euler(90, 0, 0);
         // we destroyed that trail after 3o sec to let the player watch and it disapears
         Destroy(holder.gameObject, 30f);
     }
