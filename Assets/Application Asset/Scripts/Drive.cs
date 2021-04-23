@@ -7,15 +7,10 @@ public class Drive : MonoBehaviour
 {
     public float torque = 200;
     public float steerAngle = 30;
-    public WheelCollider WC;
-    public GameObject mesh;
+    public WheelCollider[] WCs;
+    public GameObject[] Wheels;
 
-    void Start()
-    {
-        WC = GetComponent<WheelCollider>();
-
-    }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -30,16 +25,23 @@ public class Drive : MonoBehaviour
         accel = Mathf.Clamp(accel, -1,1);
         steer = Mathf.Clamp(steer, -1,1)*steerAngle;
         float thrustTorque = torque * accel;
-      
-        WC.motorTorque = thrustTorque;
-        WC.steerAngle = steer;
+        for (int i = 0; i < 4; i++)
+        {
+            WCs[i].motorTorque = thrustTorque;
+            WCs[i].steerAngle = steer;
+        }
     }
     public void AnimiateTyres()
     {
+        for (int i = 0; i < 4; i++)
+        {
+
         Quaternion quat;
         Vector3 pos;
-        WC.GetWorldPose(out pos, out quat);
-        mesh.transform.position = pos;
-        mesh.transform.rotation = quat;
+        WCs[i].GetWorldPose(out pos, out quat);
+        Wheels[i].transform.position = pos;
+            //if(i<2 )
+        Wheels[i].transform.rotation = quat;
+        }
     }
 }
