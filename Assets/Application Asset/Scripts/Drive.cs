@@ -18,8 +18,11 @@ public class Drive : MonoBehaviour
     public ParticleSystem smokePrefab;
     ParticleSystem[] skidsmoke = new ParticleSystem[4];
 
+    public GameObject BrakeLight;
     private void Start()
     {
+        BrakeLight.SetActive(false);
+
         for (int i = 0; i < 4; i++)
         {
             skidsmoke[i] = Instantiate(smokePrefab);
@@ -42,6 +45,10 @@ public class Drive : MonoBehaviour
         brake = Mathf.Clamp(brake, 0,1)* breakTorque;
         steer = Mathf.Clamp(steer, -1,1)*steerAngle;
         float thrustTorque = torque * accel;
+        if (brake > 0)
+            BrakeLight.SetActive(true);
+        else
+            BrakeLight.SetActive(false);
         for (int i = 0; i < 4; i++)
         {
             WCs[i].motorTorque = thrustTorque;
@@ -65,7 +72,7 @@ public class Drive : MonoBehaviour
         {
             WheelHit wheelHit;
             WCs[i].GetGroundHit(out wheelHit);
-            if (Mathf.Abs(wheelHit.forwardSlip) >= .5f || Mathf.Abs(wheelHit.sidewaysSlip) >= .5f)
+            if (Mathf.Abs(wheelHit.forwardSlip) >= .4f || Mathf.Abs(wheelHit.sidewaysSlip) >= .4f)
             {
                 skidingNum++;
                 if (!skidSound.isPlaying)
