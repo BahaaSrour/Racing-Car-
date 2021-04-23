@@ -62,12 +62,12 @@ public class Drive : MonoBehaviour
                 if (!skidSound.isPlaying)
                 {
                     skidSound.Play();
-                  //  StartSkidTrail(i);
+                    StartSkidTrail(i);
                 }
             }
             else 
             {
-               // EndSkidTrail(i);
+                EndSkidTrail(i);
             }
         }
         if (skidingNum == 0 && skidSound.isPlaying)
