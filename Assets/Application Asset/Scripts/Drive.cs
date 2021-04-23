@@ -15,8 +15,17 @@ public class Drive : MonoBehaviour
 
     public Transform skidTrailPrefab;
     Transform[] skidTrails = new Transform[4];
+    public ParticleSystem smokePrefab;
+    ParticleSystem[] skidsmoke = new ParticleSystem[4];
 
-
+    private void Start()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            skidsmoke[i] = Instantiate(smokePrefab);
+            skidsmoke[i].Stop();
+        }
+    }
 
     void Update()
     {
@@ -62,8 +71,10 @@ public class Drive : MonoBehaviour
                 if (!skidSound.isPlaying)
                 {
                     skidSound.Play();
-                    StartSkidTrail(i);
                 }
+                StartSkidTrail(i);
+                skidsmoke[i].transform.position = WCs[i].transform.position - Vector3.up * WCs[i].radius;
+                skidsmoke[i].Emit(1);
             }
             else 
             {
