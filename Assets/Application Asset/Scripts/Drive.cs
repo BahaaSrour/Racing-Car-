@@ -12,11 +12,53 @@ public class Drive : MonoBehaviour
     public float breakTorque = 2000;
 
     public AudioSource skidSound;
+    public AudioSource highAccel;
 
     public Transform skidTrailPrefab;
     Transform[] skidTrails = new Transform[4];
     public ParticleSystem smokePrefab;
     ParticleSystem[] skidsmoke = new ParticleSystem[4];
+
+    public Rigidbody rb;
+    public float gearLength;
+    public float currentSpeed{get{ return rb.velocity.magnitude * gearLength; }}
+    public float lowPitch = 1;
+    public float highPitch = 6;
+    public float numGear = 5;
+    float rbm;
+    int currentGear = 1;
+    float  currentGearPerc ;
+    public float maxSpeed = 200;
+
+
+    public void CalculateGearSound()
+    {
+        float gearPercentage = (1 / numGear);
+
+        float targetGearFactor = Mathf.InverseLerp(gearPercentage * currentGear, gearPercentage * (currentGear + 1), Mathf.Abs(currentSpeed / maxSpeed));
+        currentGearPerc = Mathf.Lerp(currentGearPerc, targetGearFactor, Time.deltaTime * 5f);
+
+        //calculate rbm per minute
+        var gearNumFactor = currentGear / (float)numGear;
+        rbm = Mathf.Lerp(gearNumFactor, 1, currentGearPerc);
+
+
+        //we will determine if we are going to change gear
+        float speedPercentage = Mathf.Abs(currentSpeed / maxSpeed);
+        
+        //next gear starting value
+        float upperGearMax = (1/(float)numGear)*(currentGear+1); 
+        float downGearMax = (1/(float)numGear)*currentGear;
+
+        if (currentGear > 0 && currentGear < downGearMax)
+            currentGear--;
+        if (currentGear > upperGearMax && currentGear < (numGear - 1))
+            currentGear++;
+
+        float pitch = Mathf.Lerp(lowPitch, highPitch, rbm);
+        highAccel.pitch = Math.Min(highPitch, pitch) * .25f;
+    }
+
 
     public GameObject BrakeLight;
     private void Start()
@@ -37,6 +79,7 @@ public class Drive : MonoBehaviour
         float brake = Input.GetAxis("Jump");
         Go(a,steer,brake);
         CheckForSkid();
+        CalculateGearSound();
     }
 
     private void Go(float accel,float steer,float brake)
